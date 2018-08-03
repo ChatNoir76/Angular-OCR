@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<article  [ngClass]="{'cadrepost': true,
+                        'inred': loveIts < 0,
+                        'ingreen': loveIts > 0}" class="cadrepost">
+  <div id="entete">
+      <h3>{{ title }} ({{loveIts}})</h3>
+      <p>{{created_at}}</p>
+  </div>
+  <div id="content">
+    <p>{{content}}</p>
+  </div>
+  <button class="like" (click)="getLike()" >j'aime</button>
+  <button class="notlike" (click)="getNoLike()">beurkk</button>
+</article>
