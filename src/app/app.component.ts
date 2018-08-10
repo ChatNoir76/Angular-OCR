@@ -10,7 +10,7 @@ import { Subscription, interval, Subject } from 'rxjs';
 export class AppComponent implements OnInit{
   
 dateSub = new Subject<number>();
-maDate: number = Date.now();
+maDate: number;
 compteur: Subscription;
 
 ngOnInit()
