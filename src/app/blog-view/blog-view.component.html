@@ -1,0 +1,7 @@
+<app-blog *ngFor="let post of posts"
+[title]="post.title"
+[content]="post.content"
+[created_at]="post.created_at" 
+[loveIts]="post.loveIts"></app-blog>
+<button class="btn btn-success" (click)="newPost()">Ajouter un post</button>
+
