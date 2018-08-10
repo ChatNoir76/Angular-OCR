@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BlogComponent } from './blog/blog.component';
 import { BlogViewComponent } from './blog-view/blog-view.component';
+import { EditPostComponent } from './edit-post/edit-post.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BlogComponent,
-    BlogViewComponent
+    BlogViewComponent,
+    EditPostComponent
   ],
   imports: [
     BrowserModule

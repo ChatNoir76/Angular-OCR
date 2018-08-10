@@ -1,3 +1,21 @@
-h2{
-    background-color: rgba($color: blue, $alpha: 0.4);
+$heightFooter: 30px;
+
+.contenuGeneral
+{
+    background-attachment: fixed;
+	background-size: cover;
+	margin: 0;
+    padding: 0;
+    padding-bottom: $heightFooter;
+
+}
+
+footer{
+    background-color: rgba($color: black, $alpha: 1);
+    color: white;
+    text-align: center;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    height: $heightFooter;
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <article  [ngClass]="{'cadrepost': true,
-                        'inred': loveIts < 0,
-                        'ingreen': loveIts > 0}" class="cadrepost">
+                        'isKO': loveIts <= -5,
+                        'isOK': loveIts >= 5}" class="cadrepost">
   <div id="entete">
       <h3>{{ title }} ({{loveIts}})</h3>
       <p>{{created_at}}</p>
@@ -9,6 +9,6 @@
   <div id="content">
     <p>{{content}}</p>
   </div>
-  <button class="btn-success"  (click)="getLike()">j'aime</button>
-  <button class="btn-danger" (click)="getNoLike()">beurkk</button>
+  <button class="btn btn-success"  (click)="getLike()">j'aime</button>
+  <button class="btn btn-danger" (click)="getNoLike()">beurkk</button>
 </article>
