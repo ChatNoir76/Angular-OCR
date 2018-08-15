@@ -1,0 +1,49 @@
+@mixin colorFond($couleur: black) {
+    background-color: rgba($color: $couleur, $alpha: 0.2);
+    border-color: $couleur;
+    color: black;
+}
+
+.cadrepost
+{
+    display: block;
+    margin: auto;
+    width: 60%;
+    background-color: rgba($color: black, $alpha: 0.6);
+    color: white;
+    font-style: oblique;
+    border: 5px solid black;
+    margin-bottom: 10px;
+}
+
+.isKO
+{
+    @include colorFond(red);
+}
+
+.isOK
+{
+    @include colorFond(blue);
+}
+
+#entete
+{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}
+
+.btn
+{
+    margin-right: 20px;
+}
+
+.like
+{
+    background-color: green;
+}
+
+.notlike
+{
+    background-color: red;
+}

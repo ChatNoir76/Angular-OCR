@@ -1,51 +1,45 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Post } from '../models/post.model';
+import { Subscription } from 'rxjs';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-blog-view',
   templateUrl: './blog-view.component.html',
   styleUrls: ['./blog-view.component.scss']
 })
-export class BlogViewComponent implements OnInit {
+export class BlogViewComponent implements OnInit, OnDestroy {
 
   title = 'Angular Blog Application';
 
-  posts = [
-    {
-      title: "avis scrat",
-      content: "que pensez vous de ce très chère scrat ?",
-      loveIts: 1,
-      created_at: "01/02/2018"
-    },
-    {
-      title: "pffff",
-      content: "il est tranquil, il n'a même pas besoin de se prendre la tête avec angular !!!!",
-      loveIts: 15,
-      created_at: "04/02/2018"
-    },
-    {
-      title: "non mais allo quoi !!!!",
-      content: "ouvrir un blog pour dire des conneries sérieux.... !!!!!!",
-      loveIts: -2,
-      created_at: "05/02/2018"
-    }
-  ]
+  posts: Post[];
+  postSub: Subscription;
 
-  constructor() { }
+  constructor(private postService: PostService) { }
 
   ngOnInit() {
+    this.postSub = this.postService.blogSubject.subscribe(
+      (posts: Post[]) => {
+        this.posts = posts;
+      }
+    );
+    this.postService.emitPosts();
   }
 
-  newPost()
-  {
-    const newPost = {
-      title: "un nouveau post",
-      content: "ici le contenu",
-      loveIts: 20,
-      created_at: "17/02/2018"
-    }
+  ngOnDestroy() {
+    this.postSub.unsubscribe();
+  }
 
-    this.posts.push(newPost);
+  addPost() {
+    console.log("prochain id du post : " + this.postService.getNextId())
+  }
 
+  getLike(id: number){
+    this.postService.setLike(id, 1);
+  }
+
+  getNoLike(id: number){
+    this.postService.setLike(id, -1);
   }
 
 }

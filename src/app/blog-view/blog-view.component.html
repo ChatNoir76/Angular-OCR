@@ -1,7 +1,21 @@
-<app-blog *ngFor="let post of posts"
-[title]="post.title"
-[content]="post.content"
-[created_at]="post.created_at" 
-[loveIts]="post.loveIts"></app-blog>
-<button class="btn btn-success" (click)="newPost()">Ajouter un post</button>
+<ul class="list-group">
+
+    <li *ngFor="let post of posts">
+        <article  [ngClass]="{'cadrepost': true,
+        'isKO': post.loveIts <= -5,
+        'isOK': post.loveIts >= 5}" class="cadrepost">
+            <div id="entete">
+                <h3>{{ post.title }} ({{post.loveIts}})</h3>
+                <p>{{post.created_at | date: "dd MMMM yy - HH:mm:ss"}}</p>
+            </div>
+            <div id="content">
+                <p>{{post.content}}</p>
+            </div>
+            <button class="btn btn-success"  (click)="getLike([post.id])">j'aime</button>
+            <button class="btn btn-danger" (click)="getNoLike([post.id])">beurkk</button>
+        </article>
+    </li>
+  
+</ul>
+<button class="btn btn-success" (click)="addPost()">Ajouter un post</button>
 
