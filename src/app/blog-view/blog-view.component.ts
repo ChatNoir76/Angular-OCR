@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, OnChanges } from '@angular/core';
 import { Post } from '../models/post.model';
 import { Subscription } from 'rxjs';
 import { PostService } from '../services/post.service';
@@ -16,18 +16,23 @@ export class BlogViewComponent implements OnInit, OnDestroy {
   postSub: Subscription;
 
   constructor(private postService: PostService) { }
-
+  
   ngOnInit() {
     this.postSub = this.postService.blogSubject.subscribe(
       (posts: Post[]) => {
         this.posts = posts;
       }
     );
-    this.postService.emitPosts();
+    this.actualisation();
   }
 
   ngOnDestroy() {
     this.postSub.unsubscribe();
+  }
+
+  actualisation() {
+    this.postService.getPostFromServer();
+    this.postService.emitPosts();
   }
 
   getLike(id: number){
@@ -36,6 +41,10 @@ export class BlogViewComponent implements OnInit, OnDestroy {
 
   getNoLike(id: number){
     this.postService.setLike(id, -1);
+  }
+
+  deletePost(id: number) {
+    this.postService.deletePostById(id);
   }
 
 }

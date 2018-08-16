@@ -19,7 +19,6 @@ export class EditPostComponent implements OnInit {
 
   ngOnInit() {
     this.initForm();
-    
   }
 
   initForm(){
