@@ -30,10 +30,6 @@ export class BlogViewComponent implements OnInit, OnDestroy {
     this.postSub.unsubscribe();
   }
 
-  addPost() {
-    console.log("prochain id du post : " + this.postService.getNextId())
-  }
-
   getLike(id: number){
     this.postService.setLike(id, 1);
   }

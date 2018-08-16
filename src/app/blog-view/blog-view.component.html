@@ -6,7 +6,7 @@
         'isOK': post.loveIts >= 5}" class="cadrepost">
             <div id="entete">
                 <h3>{{ post.title }} ({{post.loveIts}})</h3>
-                <p>{{post.created_at | date: "dd MMMM yy - HH:mm:ss"}}</p>
+                <p>{{post.created_at | date: "dd MMMM yy - HH:mm:ss"}} par {{ post.nom }}</p>
             </div>
             <div id="content">
                 <p>{{post.content}}</p>
@@ -17,5 +17,4 @@
     </li>
   
 </ul>
-<button class="btn btn-success" (click)="addPost()">Ajouter un post</button>
 

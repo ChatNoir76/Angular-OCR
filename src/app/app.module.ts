@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import {ReactiveFormsModule} from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { BlogViewComponent } from './blog-view/blog-view.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
@@ -21,6 +23,7 @@ const mesURL: Routes = [
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(mesURL)
   ],
   providers: [

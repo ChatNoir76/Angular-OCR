@@ -28,6 +28,6 @@ emitMyDate()
 {
   this.dateSub.next(this.maDate);
 }
-  
+
 
 }

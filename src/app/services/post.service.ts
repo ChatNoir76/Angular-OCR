@@ -4,7 +4,7 @@ import { Subject } from "rxjs";
 export class PostService {
 
     private posts: Post[] = [
-        new Post(177,'titre1','contenu1',1,Date.now())
+        new Post(177,'test','titre1','contenu1',1,Date.now())
     ];
     blogSubject = new Subject<Post[]>();
 

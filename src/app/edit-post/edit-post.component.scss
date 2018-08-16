@@ -1,0 +1,14 @@
+.contenu
+{
+    height: 150px;
+}
+
+.form-align{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#nom, #titre{
+    width: 250px;
+}
