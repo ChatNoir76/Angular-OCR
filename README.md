@@ -1,3 +1,12 @@
+# Exemple installation
+0) vérifier que nodejs est installé
+1) Création d'un dossier Angular6 et ouvrir le terminal dans le dossier
+2) npm install @angular/cli@6.0.8 (sous linux ajouter sudo)
+3) git clone "le lien du projet"
+4) cd Angular-OCR
+5) npm install
+6) ng serve
+
 # BlogOcr
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
